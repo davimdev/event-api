@@ -8,6 +8,10 @@ REST API built with Spring Boot and PostgreSQL for event management.
 - Spring Boot
 - PostgreSQL
 - Maven
+- Flyway Migration
+- JPA/Hibernate
+- HikariCP
+- Tomcat
 
 ## 📦 Features
 
