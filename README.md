@@ -1,46 +1,22 @@
 # Event API
 
-REST API built with Spring Boot and PostgreSQL for event management.
+API REST para gerenciamento de eventos.
 
-## 🚀 Technologies
-
+## 🚀 Tecnologias
 - Java 21
 - Spring Boot
 - PostgreSQL
-- Maven
-- Flyway Migration
-- JPA/Hibernate
-- HikariCP
-- Tomcat
+- Flyway
 
-## 📦 Features
+## 📌 Funcionalidades
+- Criar eventos
+- Validação de dados
+- Persistência em banco
 
-- Create event
-- List events
-- Update event
-- Delete event
-- Layered architecture
+## ▶️ Como rodar
+1. Clonar o projeto
+2. Configurar o banco
+3. Rodar aplicação
 
-## 🔧 How to run locally
-
-1. Clone the repository:
-
-```bash
-git clone https://github.com/davimdev/event-api.git
-```
-
-2. Configure your PostgreSQL database in `application.properties`
-
-3. Run the application:
-
-```bash
-mvn spring-boot:run
-```
-
-## 🧪 Endpoints
-
-- GET /events
-- GET /events/{id}
-- POST /events
-- PUT /events/{id}
-- DELETE /events/{id}
+## 📬 Endpoints
+POST /api/events
