@@ -38,4 +38,10 @@ public class Event {
     private Boolean remote;
 
     private Date date;
+
+    public void setCity(String city) {
+    }
+
+    public void setState(String state) {
+    }
 }

@@ -20,11 +20,7 @@ public class EventService {
     }
 
     public Event createEvent(EventRequestDTO data){
-        String imgUrl = null;
-
-        if(data.image() != null){
-            imgUrl = this.uploadImg(data.image());
-        }
+        String imgUrl = "https://via.placeholder.com/150";
 
         Event newEvent = new Event();
         newEvent.setTitle(data.title());
@@ -32,6 +28,9 @@ public class EventService {
         newEvent.setEventUrl(data.eventUrl());
         newEvent.setDate(new Date(data.data()));
         newEvent.setImgUrl(imgUrl);
+        newEvent.setRemote(data.remote());
+        newEvent.setCity(data.city());
+        newEvent.setState(data.state());
 
         return eventRepository.save(newEvent);
     }
@@ -49,4 +48,33 @@ public class EventService {
                 .orElseThrow(() -> new RuntimeException("Evento não encontrado"));
     }
 
+    public Event updateEvent(UUID id, EventRequestDTO data){
+        Event event = eventRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Evento não encontrado"));
+
+        if (data.title() != null){
+            event.setTitle(data.title());
+        }
+
+        if (data.description() != null){
+            event.setDescription(data.description());
+        }
+
+        if (data.eventUrl() != null){
+            event.setEventUrl(data.eventUrl());
+        }
+
+        if (data.data() != null){
+            event.setDate(new Date(data.data()));
+        }
+
+        return eventRepository.save(event);
+    }
+
+    public void deleteEvent(UUID id){
+        if (!eventRepository.existsById(id)){
+            throw new RuntimeException("Evento não encontrado");
+        }
+        eventRepository.deleteById(id);
+    }
 }

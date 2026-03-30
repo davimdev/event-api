@@ -1,8 +1,29 @@
 package com.eventostec.api.domain.event;
 
-import org.springframework.web.multipart.MultipartFile;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
-import javax.xml.crypto.Data;
+public record EventRequestDTO(
 
-public record EventRequestDTO(String title, String description, Long data, String city, String state, Boolean remote, String eventUrl, MultipartFile image) {
-}
+        @NotBlank(message = "Title é obrigatório")
+        String title,
+
+        @NotBlank(message = "Description é obrigatório")
+        String description,
+
+        @NotNull(message = "Data é obrigatória")
+        Long data,
+
+        @NotBlank(message = "City é obrigatório")
+        String city,
+
+        @NotBlank(message = "State é obrigatório")
+        String state,
+
+        @NotNull(message = "Remote é obrigatório")
+        Boolean remote,
+
+        @NotBlank(message = "URL do evento é obrigatória")
+        String eventUrl
+
+) {}
